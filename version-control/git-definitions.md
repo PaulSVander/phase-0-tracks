@@ -8,7 +8,7 @@
 
 * What is a branch and why would you use one?
 
-  A branch is your own copy of the main project you're working on. It's important to use branches because it allows you to make and test changes to ensure that they work properly before making those changes to the source code
+  A branch is your copy of the main project you're working on. It's important to use branches because it allows you to make and test changes to ensure that they work properly before making those changes to the source code
 
 * What is a commit? What makes a good commit message?
 
