@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Practice Form</title>
+  </head>
+  <body>
+    <form action="success.html" method="post" id="gameform">
+  		<fieldset>
+  		<div>
+    		<label>Twitch Game</label>
+   			<select name="games">
+   				<option value="Counterstrike">Counterstrike</option>
+   				<option value="Starcraft">Starcraft</option>
+   				<option value="League of Legends">League of Legends</option>
+   			</select>
+  		</div>
+  		<div>
+    		<label>Hours</label>
+    		<input type="number" name="hours">
+  		</div>
+  		<div>    
+      		<label>Choose a date:</label>
+      		<input type="date" name="date">
+    	</div>
+  		<div>
+  			<label>Username:</label>
+  			<input type="text" name="name">
+  		</div>
+  	</fieldset>
+  		<div>
+  			<fieldset>
+  				<legend> Content Quality</legend>
+  			<p>
+  				<label>
+  					<input type="radio" name="quality" value="bad">
+  					Bad
+  				</label>
+  			</p>
+  			<p>
+  				<label>
+  					<input type="radio" name="quality" value="okay">
+  					Okay
+  				</label>
+  			</p>
+  			<p>
+  				<label>
+  					<input type="radio" name="quality" value="good">
+  					Good
+  				</label>
+  			</p>
+			</fieldset>
+  		</div>
+  		<br>
+  		<input type="checkbox" name="cb-agree" value="agree">
+  		I agree to submit my data to our internet overlords. <br>
+  		<button type="submit">Submit</button>
+</form>
+<br>
+<textarea rows ="4" cols="50" name ="comment" form="gameform">
+	Enter comments here!
+</textarea>
+  </body>
+</html>
