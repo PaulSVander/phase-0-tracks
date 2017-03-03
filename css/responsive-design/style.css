@@ -12,8 +12,6 @@ cite {
 #external-links ul {
   list-style-type: none;
   padding-left: 0px;
-  width: 200px;
-  
 }
 
 /* you're welcome to edit the
@@ -34,9 +32,17 @@ figcaption {
 }
 
 body {
-  width: 960px;
+  max-width: 960px;
 }
 
 main {
-  width: 756px;
+  width: 78.75%;
+  display: inline-block;
+
+}
+
+#external-links {
+  float: left;
+  display: inline-block;
+  width: 20.83%;
 }
