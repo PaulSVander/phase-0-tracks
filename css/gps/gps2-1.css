@@ -1,4 +1,47 @@
+.column-1 {
+  display: block;
+  float: left;
+  width: 45%;
+  margin-bottom: 20px;
+}
+
+.column-2 {
+  display:block;
+  float: right;
+  width: 45%;
+  margin-bottom: 20px;
+}
+
+footer {
+  clear: both;
+  padding: 2.5%;
+  background-color:#a2bbf9;
+  margin-top: 20px;
+}
+
 body {
-  background: blue;
-  
+  max-width: 1000px;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+header > p {
+  background-color: #a2bbf9;
+  padding: 2.5%;
+}
+
+header > h1 {
+  padding: 2.5%;
+  color: white;
+}
+
+header {
+  background-image: URL(https://i.ytimg.com/vi/d-zKJCKsoWw/maxresdefault.jpg);
+}
+
+article >h2 {
+  text-decoration: underline;
+}
+
+article:nth-child(odd) {
+  background-color: #00a0f7;
 }
