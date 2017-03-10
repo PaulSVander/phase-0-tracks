@@ -1,0 +1,23 @@
+-Move forward into elevator
+-Turn left and move forward until you hit a wall
+-Turn left and move forward along wall until you are in front of the panel
+-Ask owner which floor they want to go to
+  -If owners selection is invalid, ask until given a valid input
+-Starting with the button the top left, read each button from left to right, until one matches with owners input
+-Press the button matching the input
+-Wait until elevator reaches the level of the button that was pushed
+-Follow the path taken into the elevator backwards to exit
+
+Shaving my face
+-Turn on sink and wash hands
+-Open cabinet and grab shaving cream
+-Spray shaving cream into hand
+-Rub cream with hands until it builds up a lather
+-Evenly apply cream on to facial hair
+-Grab razor and run it under the sink
+-Until there is no facial hair left:
+  -Place blade at the top of the cream and move downwards
+  -Move blade sideways to where there is still shaving cream
+-Wash any remaining shaving cream off of face
+-Apply aftershave
+-Dry face off with towel
