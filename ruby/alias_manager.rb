@@ -14,6 +14,7 @@ join the array of characters into a string
 
 def spyname(string)
   split_name = string.split(" ")
+  #create a string with the names reversed and split into array of individual letters
   swapped_name = ("#{split_name[1]} #{split_name[0]}").split("")
   vowels = ['a', 'e', 'i', 'o', 'u']
 
@@ -32,15 +33,11 @@ def spyname(string)
     end
   end
 
-  swapped_name.join("")
-
   return swapped_name.join("")
-
 end
 
 alias_hash = {}
 input = nil
-
 until input == "quit" do
   puts "Enter a name you would like to convert. Enter 'quit' to quit."
   input = gets.chomp
