@@ -1,7 +1,10 @@
 class Santa
 
+  attr_reader :ethnicity
+  attr_accessor :gender, :age
+
+
   def initialize(gender, ethnicity)
-    puts "Initializing Santa instance ..."
     @gender = gender
     @ethnicity = ethnicity
     @reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
@@ -25,29 +28,10 @@ class Santa
     @reindeer_ranking << reindeer
   end
 
-  def gender=(new_gender)
-    @gender = new_gender
-  end
-
-  def age
-    @age
-  end 
-
-  def ethnicity
-    @ethnicity
-  end
-
   def about
     puts "Gender: #{@gender}\nEthnicity: #{@ethnicity}\nReindeer rank: #{@reindeer_ranking}\nAge: #{@age}"
   end
-
 end
-
-=begin 
-Nick = Santa.new
-Nick.speak
-Nick.eat_milk_and_cookies("sugar cookie")
-=end
 
 santas = []
 example_genders = ["male", "agender", "asexual", "cisgender", "Trans Female"]
@@ -68,3 +52,12 @@ puts "santas.ethnicity returns #{santas[0].ethnicity}"
 
 puts "-----After test code-----"
 santas[0].about
+
+80.times do 
+  nick = Santa.new(example_genders.sample, example_ethnicities.sample)
+  puts "--------------------------"
+  nick.age = rand(140)
+  puts nick.age
+  puts nick.gender
+  puts nick.ethnicity
+end
