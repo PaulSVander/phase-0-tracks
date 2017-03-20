@@ -22,7 +22,7 @@ class Santa
 
   def get_mad_at(reindeer)
     @reindeer_ranking.delete(reindeer)
-    @reindeer_ranking << redineer
+    @reindeer_ranking << reindeer
   end
 
   def gender=(new_gender)
@@ -38,8 +38,7 @@ class Santa
   end
 
   def about
-    puts "Gender: #{@gender}\nEthnicity: #{@ethnicity}\nReindeer rank: #{@reindeer_ranking}\n
-          Age: #{@age}"
+    puts "Gender: #{@gender}\nEthnicity: #{@ethnicity}\nReindeer rank: #{@reindeer_ranking}\nAge: #{@age}"
   end
 
 end
@@ -58,5 +57,14 @@ example_genders.length.times do |i|
   santas << Santa.new(example_genders[i], example_ethnicities[i])
 end
 
-santas[0]
+puts "-----Before test code-----"
+santas[0].about
 
+santas[0].celebreate_birthday
+santas[0].get_mad_at("Dasher")
+santas[0].gender = "female"
+puts "santas.age returns #{santas[0].age}"
+puts "santas.ethnicity returns #{santas[0].ethnicity}"
+
+puts "-----After test code-----"
+santas[0].about
