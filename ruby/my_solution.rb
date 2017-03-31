@@ -1,78 +1,104 @@
 # Virus Predictor
+
 # I worked on this challenge [by myself, with: ].
 # We spent [#] hours on this challenge.
+
 # EXPLANATION OF require_relative
-#
-#
+# require_relative allows you to access code from the file you are linking to.
+# relative_relative takes a file from a path in your directory. require imports from a source outside of your directory.
 require_relative 'state_data'
+
 class VirusPredictor
+
+  # Creates an instance of VirusPredictor with state of origin, pop. density, pop. 
   def initialize(state_of_origin, population_density, population)
     @state = state_of_origin
     @population = population
     @population_density = population_density
   end
-  
+
+  # Makes call to predicted_deats and speed_of_spread methods and passes pop. data and sate as arguments 
   def virus_effects
     predicted_deaths(@population_density, @population, @state)
     speed_of_spread(@population_density, @state)
-    print_report(@state)
   end
+
   private
+
+  # Takes pop. data and state to calculate predicted total losses and prints the total loss for the state
   def predicted_deaths(population_density, population, state)
     # predicted deaths is solely based on population density
     if @population_density >= 200
-      @number_of_deaths = (@population * 0.4).floor
+      number_of_deaths = (@population * 0.4).floor
     elsif @population_density >= 150
-      @number_of_deaths = (@population * 0.3).floor
+      number_of_deaths = (@population * 0.3).floor
     elsif @population_density >= 100
-      @number_of_deaths = (@population * 0.2).floor
+      number_of_deaths = (@population * 0.2).floor
     elsif @population_density >= 50
-      @number_of_deaths = (@population * 0.1).floor
+      number_of_deaths = (@population * 0.1).floor
     else
-      @number_of_deaths = (@population * 0.05).floor
+      number_of_deaths = (@population * 0.05).floor
     end
+
+    print "#{@state} will lose #{number_of_deaths} people in this outbreak"
+
   end
+
+  # Takes the pop. density and state and determines the speed at which the virus will spread
+  # Then prints out the speed of spread
   def speed_of_spread(population_density, state) #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
-    @speed = 0.0
+    speed = 0.0
+
     if @population_density >= 200
-      @speed += 0.5
+      speed += 0.5
     elsif @population_density >= 150
-      @speed += 1
+      speed += 1
     elsif @population_density >= 100
-      @speed += 1.5
+      speed += 1.5
     elsif @population_density >= 50
-      @speed += 2
+      speed += 2
     else
-      @speed += 2.5
+      speed += 2.5
     end
+
+    puts " and will spread across the state in #{speed} months.\n\n"
+
   end
-  def print_report(state)
-    puts "#{state} will lose #{@number_of_deaths} people in this outbreak"
-    puts " and will spread across the state in #{@speed} months.\n\n"
-  end
+
 end
+
 #=======================================================================
+
 # DRIVER CODE
  # initialize VirusPredictor for each state
+
+
 # alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population])
 # alabama.virus_effects
+
 # jersey = VirusPredictor.new("New Jersey", STATE_DATA["New Jersey"][:population_density], STATE_DATA["New Jersey"][:population])
 # jersey.virus_effects
+
 # california = VirusPredictor.new("California", STATE_DATA["California"][:population_density], STATE_DATA["California"][:population])
 # california.virus_effects
+
 # alaska = VirusPredictor.new("Alaska", STATE_DATA["Alaska"][:population_density], STATE_DATA["Alaska"][:population])
 # alaska.virus_effects
-STATE_DATA.each do |state, population_data|
-  current_state = VirusPredictor.new(state, STATE_DATA[state][:population_density], STATE_DATA[state][:population])
+
+
+# Iterate through the state_data hash
+# Applying each state to the predict virus effects
+# print out the results for each state
+
+state_data.each do |state|
+
+  current_state = VirusePredictor.new(state, STATE_DATA[state][:population_density], STATE_DATA[state][:population])
   current_state.virus_effects
+
 end
+
+
 #=======================================================================
 # Reflection Section
-# What are the differences between the two different hash syntaxes shown in the state_data file?
-  #
-# What does require_relative do? How is it different from require?
-# What are some ways to iterate through a hash?
-# When refactoring virus_effects, what stood out to you about the variables, if anything?
-# What concept did you most solidify in this challenge?
