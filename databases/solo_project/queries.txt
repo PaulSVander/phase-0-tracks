@@ -1,0 +1,42 @@
+SELECT * FROM teachers;
+  1|Gable|Art|10
+  2|Watkins|History|3
+  3|Hatch|English|20
+  4|Green|Math|15
+
+UPDATE students SET grade="A" WHERE name="Adam";
+
+SELECT * FROM students, teachers WHERE students.teacher_id = teachers.id;
+  1|Adam|A|true|1|1|Gable|Art|10
+  2|Frank|D|false|2|2|Watkins|History|3
+  3|Nancy|A|true|3|3|Hatch|English|20
+  4|Amanda|C|true|4|4|Green|Math|15
+  5|Gary|A|true|1|1|Gable|Art|10
+  6|Megan|F|false|2|2|Watkins|History|3
+  7|Sam|C|true|3|3|Hatch|English|20
+  8|Alex|A|true|4|4|Green|Math|15
+
+SELECT students.name, students.grade, teachers.name FROM students JOIN teachers ON students.teacher_id = teachers.id;
+
+  Adam|A|Gable
+  Frank|D|Watkins
+  Nancy|A|Hatch
+  Amanda|C|Green
+  Gary|A|Gable
+  Megan|F|Watkins
+  Sam|C|Hatch
+  Alex|A|Green
+
+DELETE FROM students WHERE passing="false";
+
+SELECT students.name, students.grade, teachers.name FROM students LEFT  JOIN teachers ON students.ID = 3;
+  
+  Adam|A|
+  Nancy|A|Gable
+  Nancy|A|Watkins
+  Nancy|A|Hatch
+  Nancy|A|Green
+  Amanda|C|
+  Gary|A|
+  Sam|C|
+  Alex|A|
