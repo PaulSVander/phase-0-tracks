@@ -1,0 +1,23 @@
+SELECT * FROM businesses, reviews, users WHERE reviews.user_id = users.id AND reviews.business_id = businesses.id;
+
+  1|Grundy Hollow Wedding Chapel|1|3|Average food|1|1|1|Bradford|Pitt
+  2|Amir's Towing|2|5|Amazing prices|2|4|4|Steve|Wonder
+  4|Lotus Yoga|3|1|Fly in my soup|4|3|3|Anglea|Jolie
+  3|The Beatles Nightclub|4|4|Great happy hour|3|2|2|Mandy|Kaling
+
+
+SELECT users.first_name, users.last_name, businesses.name, reviews.stars, reviews.comment
+FROM 
+  users 
+  JOIN reviews ON users.id = reviews.user_id
+  JOIN businesses ON reviews.business_id = businesses.id;
+
+  Bradford|Pitt|Grundy Hollow Wedding Chapel|3|Average food
+  Steve|Wonder|Amir's Towing|5|Amazing prices
+  Anglea|Jolie|Lotus Yoga|1|Fly in my soup
+  Mandy|Kaling|The Beatles Nightclub|4|Great happy hour
+
+
+SELECT * FROM users, reviews, businesses WHERE reviews.business_id = businesses.id AND reviews.user_id = users.id AND businesses.id = 3;
+  
+  2|Mandy|Kaling|4|4|Great happy hour|3|2|3|The Beatles Nightclub
