@@ -36,7 +36,7 @@ def create_database
   db
 end
 
-# Check to see if user already exists
+# Check to see if username is already taken
 def is_existing_user(db, username)
   username_arr = db.execute("SELECT username FROM users")
   username_arr.each do |user|
@@ -47,6 +47,7 @@ def is_existing_user(db, username)
   return false
 end
 
+# Check to see if exercise already exists in database
 def is_existing_exercise(db, name)
   exercises_arr = db.execute("SELECT name FROM exercises")
   exercises_arr.each do |exercise|
@@ -65,6 +66,7 @@ def add_user(db, username)
   puts "#{username} was added to the table"
 end
 
+# Adds exercise to database as long as it doesn't exist already
 def add_exercise(db)
   puts "What is the name of the exercise you want to add?"
     exercise = gets.chomp
@@ -108,13 +110,12 @@ def view_info(db, user_id)
     puts "Invalid exercise. Please retry."
     exercise = gets.chomp
   end
-  # exercise_id = db.execute("SELECT id FROM exercises WHERE name=?", exercise)
-  # exercise_id = exercise_id[0][0]
 
   results = db.execute("SELECT * FROM exercises_users WHERE user_id=? AND exercise_id=?", [user_id, exercise_id])
   puts "You last did #{results[0][1]} reps of #{exercise} at #{results[0][2]} pounds"
 end
 
+#View information on all exercises for a user
 def view_all(db, user_id)
   results = db.execute("SELECT exercises.name, exercises_users.reps, exercises_users.weight 
                         FROM users 
