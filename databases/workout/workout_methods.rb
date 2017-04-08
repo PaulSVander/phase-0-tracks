@@ -30,14 +30,10 @@ def create_database
       name VARCHAR(255) 
     )
   SQL
-
-
-
   db.execute(create_join_table)
   db.execute(create_users_table)
   db.execute(create_exercises_table)
   db
-
 end
 
 # Check to see if user already exists
@@ -69,8 +65,15 @@ def add_user(db, username)
   puts "#{username} was added to the table"
 end
 
-def add_exercise(db, name)
-  db.execute("INSERT INTO exercises (name) VALUES (?)", [name])
+def add_exercise(db)
+  puts "What is the name of the exercise you want to add?"
+    exercise = gets.chomp
+    if is_existing_exercise(db, exercise)
+      puts "#{exercise} is already in the database."
+    else
+      db.execute("INSERT INTO exercises (name) VALUES (?)", [name])
+      puts "#{exercise} was added to the database."
+    end
 end
 
 # Update reps and weight for a users exercise
@@ -105,10 +108,19 @@ def view_info(db, user_id)
     puts "Invalid exercise. Please retry."
     exercise = gets.chomp
   end
-  exercise_id = db.execute("SELECT id FROM exercises WHERE name=?", exercise)
-  exercise_id = exercise_id[0][0]
+  # exercise_id = db.execute("SELECT id FROM exercises WHERE name=?", exercise)
+  # exercise_id = exercise_id[0][0]
 
   results = db.execute("SELECT * FROM exercises_users WHERE user_id=? AND exercise_id=?", [user_id, exercise_id])
-  puts "You last did #{results[0][1]} reps of #{exercise} at #{results[0][1]} pounds"
+  puts "You last did #{results[0][1]} reps of #{exercise} at #{results[0][2]} pounds"
+end
 
+def view_all(db, user_id)
+  results = db.execute("SELECT exercises.name, exercises_users.reps, exercises_users.weight 
+                        FROM users 
+                        JOIN exercises_users ON users.id = exercises_users.user_id 
+                        JOIN exercises ON exercises_users.exercise_id = exercises.id WHERE users.id = ?", [user_id])
+  results.each do |info_array|
+    puts "#{info_array[0]}:\t #{info_array[1]} reps\t #{info_array[2]} pounds"
+  end
 end
