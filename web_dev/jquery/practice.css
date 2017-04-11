@@ -1,0 +1,25 @@
+.contact-info {
+  font-size : .8em;
+}
+
+.job {
+  background-color : #e9e5dc;
+}
+
+ul {
+  font-size : .8em;
+}
+
+
+.job:hover {
+  background-color: blue;
+}
+
+section#volunteer-experience ul {
+  font-size : 3em;
+}
+
+.background-change {
+  background-color: red;
+}
+

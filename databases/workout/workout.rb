@@ -1,7 +1,6 @@
 require_relative 'workout_methods'
 
 db = create_database
-# db.results_as_hash = true
 
 puts "Welcome to the workout tracker!"
 valid_user = false

@@ -1,0 +1,1 @@
+My plan is to begin with tutorials/lessons on YouTube. I find that I learn better when watching videos. I plan to code along with the lesson whenever possible. I'm going to use an app on my phone that allows me to use the pomodoro technique for time management/focus. I'll also look up some cheat sheets for basic jquery commands after I feel comfortable with the basics. 
