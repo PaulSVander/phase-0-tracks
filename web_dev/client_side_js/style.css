@@ -1,0 +1,23 @@
+body {
+  background-color: lightblue;
+}
+p {
+  font-style: italic;
+}
+.headers {
+  font-family: "Comic Sans MS";
+  color: red;
+  
+}
+#doge {
+  height: 200px;
+  width: auto;
+  display: block;
+  margin: auto;
+}
+#some_button {
+ color: red;
+}
+#some_button:active {
+  color: blue;
+}
